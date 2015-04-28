@@ -7,7 +7,7 @@ class profiles::puppet::lb {
     options   => {
       'option'  => [
         'tcplog',
-        'ssl-hello-chk',
+        #'ssl-hello-chk',
         ],
         'balance' => 'roundrobin',
     },
