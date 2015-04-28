@@ -12,4 +12,14 @@ class profiles::puppet::lb {
         'balance' => 'roundrobin',
     },
   }
+
+  haproxy::listen { 'stats':
+    ipaddress => $::ipaddress,
+    ports     => '9090',
+    options   => {
+      'mode'  => 'http',
+      'stats' => ['uri /', 'auth admin:puppet']
+    },
+  }
+
 }
