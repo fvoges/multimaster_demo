@@ -9,7 +9,7 @@ class profiles::puppet::r10k {
     version => '1.5.1',
     sources => {
       'puppet' => {
-        'remote'  => $remote,
+        'remote'  => $control_repo,
         'basedir' => $environmentpath,
         'prefix'  => false,
       }
