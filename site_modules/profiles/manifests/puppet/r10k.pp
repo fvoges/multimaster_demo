@@ -29,5 +29,13 @@ class profiles::puppet::r10k {
   }
 
   include ::r10k::mcollective
+  class { '::r10k::webhook::config':
+    certname         => $certname,
+    enable_ssl       => false,
+    protected        => false,
+  }
 
+  class {'::r10k::webhook':
+    require => Class['r10k::webhook::config'],
+  }
 }
